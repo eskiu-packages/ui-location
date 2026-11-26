@@ -83,6 +83,19 @@ void Here() {
 | `location_last()` | The latest position or failure, without subscribing. |
 | `location_distance(a, b)` | The distance between two positions in meters, over the Earth's surface. |
 
+## Status
+
+ui-location is in Preview, as ui's device packages are (ui's
+[docs/stability.md](https://github.com/eskiu-packages/ui/blob/main/docs/stability.md)): `eskiuc
+test` checks it against stand-ins for the platform, not on devices, and its API may still change
+in a minor release.
+
+It works on iOS, Android, the web, macOS and Linux (with GeoClue). The native Windows host
+has no location: there `location_supported()` is false and `use_location` says
+`LocationUnavailable`. A `--webview` build uses the web's `navigator.geolocation` where the
+webview offers it. Wherever the service is missing or off, `use_location` reports
+`LocationUnavailable` (or `LocationDenied`) instead of waiting forever.
+
 ## Documentation
 
 - [Platforms](docs/README.md#platforms)
